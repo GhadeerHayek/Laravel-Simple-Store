@@ -35,7 +35,12 @@
                         </div>
 
                         <div class="form-group">
-                            <!--    TODO: is discount-->
+                            <input type="checkbox" id="isDiscount" name="is_discount"
+                                   @if(!is_null($product->is_discount) && $product->is_discount == 1)
+                                       checked
+                                   @endif
+                                   value="onDiscount">
+                            <label for="isDiscount"> Item on discount</label><br>
                         </div>
                         <div class="form-group">
                             <label for="priceOnDiscount">Product Price After Discount</label>
@@ -47,17 +52,15 @@
                         <div class="form-group">
                             <label for="image">Product Image</label>
                             <input type="file" class="form-control" id="image" name="image"
-                                   placeholder="Select Product Image"
-                            <!-- TODO: value here -->
+                                   placeholder="Select Product Image">
+                        <!-- Default selection is made instead of default value -->
                         </div>
 
                         <div class="form-group">
                             <label for="storeID">Store Name</label><br>
                             <select name="storeID" class="form-select h-100 w-100 ">
-                                <option></option>
-                                <!-- TODO: selection of the option with the product id-->
                                 @foreach($stores as $store)
-                                    @if($product->id)
+                                    @if($product->store_id == $store->id)
                                         <option selected value="{{$store->id}}">{{$store->name}}</option>
                                     @else
                                         <option value="{{$store->id}}">{{$store->name}}</option>

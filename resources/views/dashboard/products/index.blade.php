@@ -43,7 +43,7 @@
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->description}}</td>
                                     <td>{{$product->price}}</td>
-                                    <td><img src="{{URL($product->image_url)}}"></td>
+                                    <td><img width="35" src="{{URL($product->image_url)}}"></td>
                                     <td>{{$product->is_discount}}</td>
                                     <td>{{$product->price_after_discount}}</td>
                                     <td>{{$product->store->name}}</td>

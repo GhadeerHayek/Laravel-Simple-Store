@@ -3,8 +3,7 @@
         <div class="custom_menu d-flex flex-row-reverse">
             <ul>
                 <li>
-                    <!-- TODO: redirect to laravel's login page-->
-                    <button class="btn btn-secondary" type="button"><a href="#">Admin Login</a>
+                    <button class="btn btn-secondary" type="button"><a href="{{URL('/login')}}">Admin Login</a>
                     </button>
                 </li>
             </ul>

@@ -13,10 +13,6 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::withTrashed()->with('Store')->get();
-        foreach ($products as $product) {
-            $img_link = Storage::url($product->image_url);
-            $product->image_url = $img_link;
-        }
         return view('dashboard.products.index')->with('products', $products);
     }
 
@@ -28,29 +24,25 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $image = $request->file('image');
-        $name = (time() + rand(1, 100000000)).'.'.$image->getClientOriginalExtension();
-        $path = 'public/images/';
-        echo $name;
-        echo $path;
-        $fullname = $path.$name;
-        Storage::disk('local')->put($fullname, file_get_contents($image));
-        $product = new Product();
-        $product->name = $request['name'];
-        $product->description = $request['description'];
-        $product->price = $request['price'];
-        $product->store_id = $request['storeID'];
-        $product->is_discount = 0;
-        $product->price_after_discount = $product->price;
-        $product->image_url = $path . $name;
-        $product->save();
-        # return redirect()->back();
-    }
+        $request->validate([
+            'image' => 'required',
+        ]);
 
-//    public function show($product)
-//    {
-//
-//    }
+        $imageName = (time() + rand(1, 100000000)) . '.' . $request->image->extension();
+        $path = "images/";
+        $image_path = $request->file('image')->storeAs($path, $imageName, 'public');
+
+        $productObject = new Product();
+        $productObject->name = $request['name'];
+        $productObject->description = $request['description'];
+        $productObject->price = $request['price'];
+        $productObject->store_id = $request['storeID'];
+        $productObject->is_discount = 0;
+        $productObject->price_after_discount = $productObject->price;
+        $productObject->image_url = Storage::url($path . $imageName);
+        $productObject->save();
+        return redirect()->back();
+    }
 
     public function edit($product)
     {
@@ -61,24 +53,26 @@ class ProductController extends Controller
 
     public function update(Request $request, $product)
     {
-        $image = $request->file('image');
-        $name = (time() + rand(1, 100000000)).'.'.$image->getClientOriginalExtension();
-        $path = 'public/images/';
-        Storage::disk('local')->put($path.$name, file_get_contents($image));
 
-
-        $product = Product::where('id', $product)->first();
-        $product->name = $request['name'];
-        $product->description = $request['description'];
-        $product->price = $request['price'];
-        $product->image_url = $path . $name;
-        $product->is_discount = $request['is_discount']?? 0;
-        $product->price_after_discount = $request['price_after_discount']??0;
-        # the form will have a list of stores ids or stores names which is then converted to ids?
-        $product->store_id = $request['store_id'];
-        $product->save();
+        $productObject = Product::find($product);
+        $productObject->name = $request['name'];
+        $productObject->description = $request['description'];
+        $productObject->price = $request['price'];
+        if(!is_null($request['image'])){
+            $imageName = (time() + rand(1, 100000000)) . '.' . $request->image->extension();
+            $path = "images/";
+            $image_path = $request->file('image')->storeAs($path, $imageName, 'public');
+            $productObject->image_url = Storage::url($path . $imageName);
+        }
+        if ($request['is_discount'] === "onDiscount") {
+            $productObject->is_discount = 1;
+        } else {
+            $productObject->is_discount = 0;
+        }
+        $productObject->price_after_discount = $request['priceOnDiscount'];
+        $productObject->store_id = $request['storeID'];
+        $productObject->save();
         return redirect()->back();
-
     }
 
     public function destroy($product)

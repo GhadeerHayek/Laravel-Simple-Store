@@ -5,7 +5,7 @@
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                         class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="{{URL('/admin/home')}}">Dashboard 1</a></li>
+                    <li><a href="{{URL('/home')}}">Dashboard 1</a></li>
                 </ul>
             </li>
             <!-- todo: insert links to different stores pages (add, delete, edit, view)-->

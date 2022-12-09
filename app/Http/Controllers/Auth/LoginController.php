@@ -44,7 +44,7 @@ class LoginController extends Controller
     {
         Auth::logout();
         # redirects to login, TODO: redirect to public website
-        return redirect()->back();
+        return redirect('/login');
     }
 
 

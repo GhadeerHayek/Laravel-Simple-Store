@@ -44,7 +44,6 @@ class StoreController extends Controller
 
     public function update(Request $request, $store)
     {
-        echo "redirect success";
         $store = Store::where('id', $store)->first();
         $store->name = $request['StoreName'];
         $store->location = $request['StoreLocation'];

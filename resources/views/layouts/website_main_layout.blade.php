@@ -17,7 +17,7 @@
 </head>
 <body>
 <!-- banner bg main start -->
-@include('includes.website_includes.banner')
+    @yield('banner')
     <!-- banner bg main end -->
     @yield('PageContent')
     <!-- footer section start -->

@@ -35,10 +35,7 @@ Route::get('/transactions', 'App\Http\Controllers\DashboardControllers\Transacti
 Route::get('/transactions/stats', 'App\Http\Controllers\DashboardControllers\Transaction\TransactionController@stats');
 
 //Main Controller routes
-Route::get('/admin/home', function (){
-    return view('dashboard/index');
-});
-Route::get('/website/home', function(){ return view('website/index');});
+Route::get('/website/home', 'App\Http\Controllers\PublicWebsiteControllers\WebsiteController@index');
 
 Auth::routes();
 
