@@ -33,6 +33,32 @@
                 </ul>
             </li>
 
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                        class="icon icon-wallet-90"></i><span class="nav-text">Account</span></a>
+                <ul aria-expanded="false">
+                    <li>
+                        @guest
+                            @if (Route::has('login'))
+                                <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                            @endif
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                            @endif
+                        @else
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        @endguest
+
+                    </li>
+                </ul>
+            </li>
+
         </ul>
     </div>
 

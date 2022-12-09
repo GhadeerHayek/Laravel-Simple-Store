@@ -39,3 +39,7 @@ Route::get('/admin/home', function (){
     return view('dashboard/index');
 });
 Route::get('/website/home', function(){ return view('website/index');});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
