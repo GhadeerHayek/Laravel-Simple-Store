@@ -4,7 +4,7 @@
     Name                 : Efron
     Author               : Quixkit
     Author Portfolio     : https://themeforest.net/user/quixkit/portfolio
-    
+
 
 
     Table of Sass Contents
@@ -16,7 +16,7 @@
         _mixin
         _variable
 
-    2. bootstrap 
+    2. bootstrap
         -Here goes all official bootstrap scss files
 
     3. Global/Base
@@ -54,12 +54,12 @@
 
 */
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
-@import url("./../icons/simple-line-icons/css/simple-line-icons.css");
-@import url("./../icons/font-awesome-old/css/font-awesome.min.css");
-@import url("./../icons/material-design-iconic-font/css/materialdesignicons.min.css");
-@import url("./../icons/themify-icons/css/themify-icons.css");
-@import url("./../icons/line-awesome/css/line-awesome.min.css");
-@import url("./../icons/avasta/css/style.css");
+@import url("../icons/simple-line-icons/css/simple-line-icons.css");
+@import url("../icons/font-awesome-old/css/font-awesome.min.css");
+@import url("../icons/material-design-iconic-font/css/materialdesignicons.min.css");
+@import url("../icons/themify-icons/css/themify-icons.css");
+@import url("../icons/line-awesome/css/line-awesome.min.css");
+@import url("../icons/avasta/css/style.css");
 @import url(./../vendor/animate/animate.min.css);
 @import url(./../vendor/aos/css/aos.min.css);
 @import url(./../vendor/perfect-scrollbar/css/perfect-scrollbar.css);
@@ -16866,7 +16866,7 @@ table.dataTable.display tbody td {
     box-shadow: none; }
 
 .welcome-content {
-  background: url("./../images/1.jpg");
+  background: url("../../images/1.jpg");
   background-size: cover;
   background-position: center;
   height: 100%;
