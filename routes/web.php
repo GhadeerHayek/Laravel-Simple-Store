@@ -38,3 +38,4 @@ Route::get('/transactions/stats', 'App\Http\Controllers\DashboardControllers\Tra
 Route::get('/admin/home', function (){
     return view('dashboard/index');
 });
+Route::get('/website/home', function(){ return view('website/index');});
