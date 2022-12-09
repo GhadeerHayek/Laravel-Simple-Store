@@ -36,7 +36,8 @@ Route::get('/transactions/stats', 'App\Http\Controllers\DashboardControllers\Tra
 
 //Main Controller routes
 Route::get('/website/home', 'App\Http\Controllers\PublicWebsiteControllers\WebsiteController@index');
-
+Route::get('/website/search', 'App\Http\Controllers\PublicWebsiteControllers\WebsiteController@search');
+Route::get('website/store/{store}', 'App\Http\Controllers\PublicWebsiteControllers\WebsiteController@showStore');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
