@@ -1,4 +1,4 @@
-@extends('layouts.main_layout')
+@extends('layouts.dashboard_main_layout')
 
 @Section("PageTitle")
     Statistics
@@ -12,10 +12,10 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title"Products Statistics</h4>
+                    <h4 class="card-title" Products Statistics</h4>
                 </div>
                 <div class="card-body">
 
                 </div>
+            </div>
         </div>
-    </div>

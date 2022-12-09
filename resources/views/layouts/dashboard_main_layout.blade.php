@@ -11,7 +11,7 @@
         @yield('PageTitle')
     </title>
     <!-- Favicon icon -->
-    @include('includes/CSSMainStyles')
+    @include('includes/dashboard_includes/CSSMainStyles')
 
 
 </head>
@@ -20,7 +20,7 @@
 <!--*******************
     Preloader start
 ********************-->
-@include('includes/PreLoader')
+@include('includes/dashboard_includes/PreLoader')
 <!--*******************
     Preloader end
 ********************-->
@@ -34,7 +34,7 @@
     <!--**********************************
         Nav header start
     ***********************************-->
-    @include('includes/NavHeader')
+    @include('includes/dashboard_includes/NavHeader')
     <!--**********************************
         Nav header end
     ***********************************-->
@@ -63,7 +63,7 @@
     <!--**********************************
         Sidebar start
     ***********************************-->
-    @include('includes/Sidebar')
+    @include('includes/dashboard_includes/Sidebar')
     <!--**********************************
         Sidebar end
     ***********************************-->
@@ -85,7 +85,7 @@
     <!--**********************************
         Footer start
     ***********************************-->
-    @include('includes/Footer')
+    @include('includes/dashboard_includes/Footer')
     <!--**********************************
         Footer end
     ***********************************-->
@@ -100,7 +100,7 @@
 <!--**********************************
     Scripts
 ***********************************-->
-@include('includes/JSMain')
+@include('includes/dashboard_includes/JSMain')
 
 </body>
 </html>

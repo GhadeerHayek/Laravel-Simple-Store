@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Stores;
+namespace App\Http\Controllers\DashboardControllers\Stores;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Store;
+use Illuminate\Http\Request;
 
 class StoreController extends Controller
 {
@@ -12,12 +12,12 @@ class StoreController extends Controller
     public function index()
     {
         $stores = Store::withTrashed()->get();
-        return view('adminDashboard.stores.index')->with('stores', $stores);
+        return view('dashboard.stores.index')->with('stores', $stores);
     }
 
     public function create()
     {
-        return view('adminDashboard.stores.create');
+        return view('dashboard.stores.create');
     }
 
     public function store(Request $request)
@@ -39,7 +39,7 @@ class StoreController extends Controller
     {
         echo "redirect success";
         $store = Store::where('id', $store)->first();
-        return view('adminDashboard.stores.edit')->with('store', $store);
+        return view('dashboard.stores.edit')->with('store', $store);
     }
 
     public function update(Request $request, $store)

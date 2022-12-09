@@ -1,29 +1,30 @@
-@extends('layouts/main_layout')
+@extends('layouts.dashboard_main_layout')
 @Section("PageTitle")
-    Edit Store
+    Add Store
 @endsection
 @Section('PageInnerTitle')
-    Edit Existing Store
+    Add new Store
 @endsection
 @Section('PageMainContent')
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Edit Store with id: {{$store->id}}</h4>
+                    <h4 class="card-title">Add new store</h4>
                 </div>
                 <div class="card-body">
-                    <form method = "post" action = "{{URL('/stores/'.$store->id)}}">
+                    <form method="post" action="{{URL('/stores')}}">
                         @csrf
-                        <input type="hidden" name ="_method" value = "put">
                         <div class="form-group">
                             <label for="StoreName">Store Name</label>
-                            <input type="text" class="form-control" id="StoreName" name ="StoreName" placeholder="Enter Store name" value = "{{$store->name}}">
+                            <input type="text" class="form-control" id="StoreName" name="StoreName"
+                                   placeholder="Enter Store name">
                         </div>
 
                         <div class="form-group">
                             <label for="StoreLocation">Store Location</label>
-                            <input type="text" class="form-control" id="StoreLocation" name ="StoreLocation" placeholder="Enter Store Location" value = "{{$store->location}}">
+                            <input type="text" class="form-control" id="StoreLocation" name="StoreLocation"
+                                   placeholder="Enter Store Location">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

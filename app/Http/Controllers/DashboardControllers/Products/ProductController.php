@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Products;
+namespace App\Http\Controllers\DashboardControllers\Products;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Store;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -17,13 +17,13 @@ class ProductController extends Controller
             $img_link = Storage::url($product->image_url);
             $product->image_url = $img_link;
         }
-        return view('adminDashboard.products.index')->with('products', $products);
+        return view('dashboard.products.index')->with('products', $products);
     }
 
     public function create()
     {
         $stores = Store::select('id', 'name')->get();
-        return view('adminDashboard.products.create')->with('stores', $stores);
+        return view('dashboard.products.create')->with('stores', $stores);
     }
 
     public function store(Request $request)
@@ -56,7 +56,7 @@ class ProductController extends Controller
     {
         $product = Product::where('id', $product)->first();
         $stores = Store::get();
-        return view('adminDashboard.products.edit')->with('product', $product)->with('stores', $stores);
+        return view('dashboard.products.edit')->with('product', $product)->with('stores', $stores);
     }
 
     public function update(Request $request, $product)

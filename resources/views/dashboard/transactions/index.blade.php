@@ -1,10 +1,10 @@
-@extends('layouts.main_layout')
+@extends('layouts.dashboard_main_layout')
 
 @Section("PageTitle")
     Purchasing Transactions
 @endsection
 @Section('PageInnerTitle')
-     Purchasing Transactions
+    Purchasing Transactions
 @endsection
 @Section('PageMainContent')
 
@@ -42,7 +42,8 @@
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th style ="text-align:center;"><a href = "{{URL('/transactions/stats')}}"> Products Sales Statistics</a></th>
+                                <th style="text-align:center;"><a href="{{URL('/transactions/stats')}}"> Products Sales
+                                        Statistics</a></th>
                             </tr>
                             </tfoot>
                         </table>
