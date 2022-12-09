@@ -42,8 +42,7 @@
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th>Total purchase amount: {{$total}}</th>
-                                <th><a href = "{{URL('/transactions/stats')}}"> Products Sales Statistics</a></th>
+                                <th style ="text-align:center;"><a href = "{{URL('/transactions/stats')}}"> Products Sales Statistics</a></th>
                             </tr>
                             </tfoot>
                         </table>

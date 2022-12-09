@@ -31,7 +31,10 @@ class ProductController extends Controller
         $image = $request->file('image');
         $name = (time() + rand(1, 100000000)).'.'.$image->getClientOriginalExtension();
         $path = 'public/images/';
-        Storage::disk('local')->put($path.$name, file_get_contents($image));
+        echo $name;
+        echo $path;
+        $fullname = $path.$name;
+        Storage::disk('local')->put($fullname, file_get_contents($image));
         $product = new Product();
         $product->name = $request['name'];
         $product->description = $request['description'];
@@ -41,7 +44,7 @@ class ProductController extends Controller
         $product->price_after_discount = $product->price;
         $product->image_url = $path . $name;
         $product->save();
-        return redirect()->back();
+        # return redirect()->back();
     }
 
 //    public function show($product)

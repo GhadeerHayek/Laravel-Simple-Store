@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->double('price');
-            $table->string('image_url');
-            $table->boolean('is_discount');
-            $table->double('price_after_discount');
+            $table->string('image_url')->nullable();
+            $table->boolean('is_discount')->default(0);
+            $table->double('price_after_discount')->default(0);
             $table->unsignedBigInteger('store_id');
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
             $table->timestamps();

@@ -33,6 +33,7 @@ Route::get('/products/restore/{product}', 'App\Http\Controllers\Products\Product
 // Transaction Routes
 Route::get('/transactions', 'App\Http\Controllers\Transaction\TransactionController@index');
 Route::get('/transactions/stats', 'App\Http\Controllers\Transaction\TransactionController@stats');
+
 //Main Controller routes
 Route::get('/admin/home', function (){
     return view('adminDashboard/index');
