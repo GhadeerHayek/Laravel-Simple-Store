@@ -25,7 +25,6 @@
                                 <th>Purchase Price</th>
                                 <th>Transaction Time</th>
                                 <th>Created At</th>
-
                             </tr>
                             </thead>
                             <tbody>

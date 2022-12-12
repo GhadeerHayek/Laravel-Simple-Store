@@ -16,10 +16,8 @@
     @include('includes.website_includes.css_includes')
 </head>
 <body>
-<!-- banner bg main start -->
-    @yield('banner')
-    <!-- banner bg main end -->
-    @yield('PageContent')
+
+    @yield('MainSection')
     <!-- footer section start -->
     @include('includes.website_includes.footer')
     <!-- footer section end -->

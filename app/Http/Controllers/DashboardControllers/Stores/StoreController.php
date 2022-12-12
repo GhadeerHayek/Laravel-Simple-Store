@@ -26,18 +26,10 @@ class StoreController extends Controller
         $store->name = $request['StoreName'];
         $store->location = $request['StoreLocation'];
         $store->save();
-
         return redirect()->back();
     }
-
-//    public function show($store)
-//    {
-//
-//    }
-
     public function edit($store)
     {
-        echo "redirect success";
         $store = Store::where('id', $store)->first();
         return view('dashboard.stores.edit')->with('store', $store);
     }
@@ -48,7 +40,6 @@ class StoreController extends Controller
         $store->name = $request['StoreName'];
         $store->location = $request['StoreLocation'];
         $store->save();
-
         return redirect()->back();
     }
 

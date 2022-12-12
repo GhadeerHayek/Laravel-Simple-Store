@@ -62,7 +62,7 @@
                         <div class="stat-digit"></i>{{$data['total_sales']}}<i class="fa fa-usd"></i> </div>
                     </div>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-danger w-{{$data['total_sales']}}" role="progressbar" aria-valuenow="65"
+                        <div class="progress-bar progress-bar-danger w-@if($data['total_sales'] > 100 )95 @else{{$data['total_sales']}}@endif" role="progressbar" aria-valuenow="65"
                              aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>

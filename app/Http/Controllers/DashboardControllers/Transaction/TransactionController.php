@@ -18,12 +18,17 @@ class TransactionController extends Controller
     public function stats()
     {
         $sales_per_product = DB::select("
-        SELECT sum(price), product_id
-        from transactions
-        group by product_id;
+            SELECT
+	t.product_id,
+	p.name as 'product_name',
+	sum( t.price ) AS 'total_sales'
+FROM
+	`transactions` t
+	JOIN `products` p ON ( p.`id` = t.`product_id` )
+GROUP BY
+	`product_id`, `product_name`;
         ");
-        dd($sales_per_product);
-        return view('dashboard.transactions.stats');
+        return view('dashboard.transactions.stats')->with('sales_per_product', $sales_per_product);
     }
 
 }

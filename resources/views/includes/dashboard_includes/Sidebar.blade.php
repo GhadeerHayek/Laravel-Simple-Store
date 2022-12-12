@@ -5,7 +5,7 @@
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                         class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="{{URL('/home')}}">Dashboard 1</a></li>
+                    <li><a href="{{URL('/home')}}">Home</a></li>
                 </ul>
             </li>
             <!-- todo: insert links to different stores pages (add, delete, edit, view)-->
@@ -34,7 +34,7 @@
             </li>
 
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                        class="icon icon-wallet-90"></i><span class="nav-text">Account</span></a>
+                        class="icon icon-settings"></i><span class="nav-text">Account</span></a>
                 <ul aria-expanded="false">
                     <li>
                         @guest
