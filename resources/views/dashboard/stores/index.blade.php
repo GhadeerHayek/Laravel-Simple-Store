@@ -21,6 +21,7 @@
                             <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Image</th>
                                 <th>Name</th>
                                 <th>Location</th>
                                 <th>Created At</th>
@@ -36,6 +37,11 @@
                             @foreach($stores as $store)
                                 <tr>
                                     <td>{{ $store->id }}</td>
+                                    @if(!is_null($store->image_url ))
+                                        <td><img width="35" src="{{URL($store->image_url)}}"></td>
+                                    @else
+                                        <td></td>
+                                    @endif
                                     <td>{{$store->name  }}</td>
                                     <td>{{$store->location  }}</td>
                                     <td><span>{{ $store->created_at }}</span></td>

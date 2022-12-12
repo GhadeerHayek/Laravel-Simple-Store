@@ -26,7 +26,7 @@ return new class extends Migration
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
-
+            $table->index(['name', 'store_id']);
         });
     }
 

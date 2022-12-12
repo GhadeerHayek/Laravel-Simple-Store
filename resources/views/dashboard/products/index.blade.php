@@ -21,10 +21,10 @@
                             <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Image</th>
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Price</th>
-                                <th>Image</th>
                                 <th>Is on discount</th>
                                 <th>Price after discount</th>
                                 <th>Store Name</th>
@@ -40,10 +40,14 @@
                             @foreach($products as $product)
                                 <tr>
                                     <td>{{ $product->id }}</td>
+                                    @if(!is_null($product->image_url ))
+                                        <td><img width="35" src="{{URL($product->image_url)}}"></td>
+                                    @else
+                                        <td></td>
+                                    @endif
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->description}}</td>
                                     <td>{{$product->price}}</td>
-                                    <td><img width="35" src="{{URL($product->image_url)}}"></td>
                                     <td>{{$product->is_discount}}</td>
                                     <td>{{$product->price_after_discount}}</td>
                                     <td>{{$product->store->name}}</td>

@@ -13,7 +13,7 @@
                     <h4 class="card-title">Edit Store with id: {{$store->id}}</h4>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{URL('/stores/'.$store->id)}}">
+                    <form method="post" action="{{URL('/stores/'.$store->id)}}" enctype="multipart/form-data" >
                         @csrf
                         <input type="hidden" name="_method" value="put">
                         <div class="form-group">
@@ -27,6 +27,13 @@
                             <input type="text" class="form-control" id="StoreLocation" name="StoreLocation"
                                    placeholder="Enter Store Location" value="{{$store->location}}">
                         </div>
+                        <div class="form-group">
+                            <label for="image">Store Image</label>
+                            <input type="file" class="form-control" id="image" name="image"
+                                   placeholder="Select Store Image">
+                            <!-- Default selection is made instead of default value -->
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

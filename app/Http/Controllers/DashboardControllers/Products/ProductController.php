@@ -33,7 +33,7 @@ class ProductController extends Controller
         ]);
 
         $imageName = (time() + rand(1, 100000000)) . '.' . $request->image->extension();
-        $path = "images/";
+        $path = "images/products/";
         $image_path = $request->file('image')->storeAs($path, $imageName, 'public');
 
         $productObject = new Product();
@@ -69,7 +69,7 @@ class ProductController extends Controller
         $productObject->price = $request['price'];
         if (!is_null($request['image'])) {
             $imageName = (time() + rand(1, 100000000)) . '.' . $request->image->extension();
-            $path = "images/";
+            $path = "images/products";
             $image_path = $request->file('image')->storeAs($path, $imageName, 'public');
             $productObject->image_url = Storage::url($path . $imageName);
         }

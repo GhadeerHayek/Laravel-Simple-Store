@@ -17,8 +17,10 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('location');
+            $table->string('image_url')->nullable();
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
+            $table->index(['name', 'location']);
         });
     }
 
