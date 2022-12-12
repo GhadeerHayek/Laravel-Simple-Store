@@ -42,4 +42,4 @@ Route::get('/website/billing/{product}', 'App\Http\Controllers\PublicWebsiteCont
 Route::post('/website/confirm/{product}', 'App\Http\Controllers\PublicWebsiteControllers\WebsiteController@handlePurchase');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');

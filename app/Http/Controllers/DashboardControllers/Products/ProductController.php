@@ -26,6 +26,10 @@ class ProductController extends Controller
     {
         $request->validate([
             'image' => 'required',
+            'name' => 'required',
+            'description' => 'nullable',
+            'price' => 'required|numeric',
+
         ]);
 
         $imageName = (time() + rand(1, 100000000)) . '.' . $request->image->extension();
@@ -34,7 +38,7 @@ class ProductController extends Controller
 
         $productObject = new Product();
         $productObject->name = $request['name'];
-        $productObject->description = $request['description'];
+        $productObject->description = $request['description'] ?? "";
         $productObject->price = $request['price'];
         $productObject->store_id = $request['storeID'];
         $productObject->is_discount = 0;
@@ -53,12 +57,17 @@ class ProductController extends Controller
 
     public function update(Request $request, $product)
     {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'storeID' => 'required',
 
+        ]);
         $productObject = Product::find($product);
         $productObject->name = $request['name'];
         $productObject->description = $request['description'];
         $productObject->price = $request['price'];
-        if(!is_null($request['image'])){
+        if (!is_null($request['image'])) {
             $imageName = (time() + rand(1, 100000000)) . '.' . $request->image->extension();
             $path = "images/";
             $image_path = $request->file('image')->storeAs($path, $imageName, 'public');
@@ -69,7 +78,11 @@ class ProductController extends Controller
         } else {
             $productObject->is_discount = 0;
         }
-        $productObject->price_after_discount = $request['priceOnDiscount'];
+        if (is_null($request['priceOnDiscount'])) {
+            $productObject->price_after_discount = $productObject['price'];
+        } else {
+            $productObject->price_after_discount = $request['priceOnDiscount'];
+        }
         $productObject->store_id = $request['storeID'];
         $productObject->save();
         return redirect()->back();

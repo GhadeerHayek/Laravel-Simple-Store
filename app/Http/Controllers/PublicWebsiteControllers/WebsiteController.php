@@ -18,6 +18,9 @@ class WebsiteController extends Controller
 
     public function search(Request $request)
     {
+        $validated = $request->validate([
+            'searchKey' => 'required|max:255',
+        ]);
         $products = Product::where('name', 'like', '%' . $request->query('searchKey') . '%')->get();
         return view('website.search')->with('products', $products);
     }
@@ -42,6 +45,11 @@ class WebsiteController extends Controller
 
     public function handlePurchase(Request $request)
     {
+        $validated = $request->validate([
+            'storeID' => 'required',
+            'productID' => 'required',
+            'price' => 'required|numeric'
+        ]);
         $store_id = $request['storeID'];
         $product_id = $request['productID'];
         $product_price = $request['price'];

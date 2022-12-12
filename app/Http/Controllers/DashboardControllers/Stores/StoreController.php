@@ -22,6 +22,10 @@ class StoreController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'StoreName' => 'required',
+            'StoreLocation' => 'required',
+        ]);
         $store = new Store;
         $store->name = $request['StoreName'];
         $store->location = $request['StoreLocation'];
@@ -36,6 +40,10 @@ class StoreController extends Controller
 
     public function update(Request $request, $store)
     {
+        $request->validate([
+            'StoreName' => 'required',
+            'StoreLocation' => 'required',
+        ]);
         $store = Store::where('id', $store)->first();
         $store->name = $request['StoreName'];
         $store->location = $request['StoreLocation'];
